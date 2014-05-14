@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bright_blue">
+
+    <RelativeLayout
+        android:id="@+id/vg_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bright_pink">
+
+        <ImageView
+            android:id="@+id/image_title"
+            android:layout_width="@dimen/title_image_size"
+            android:layout_height="@dimen/title_image_size"
+            android:contentDescription="@string/action_bar_arrow"
+            android:layout_centerHorizontal="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/uaf_title_image"
+            android:background="@color/bright_pink" />
+
+        <TextView
+            android:id="@+id/text_start_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/image_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/start_date"
+            android:textColor="@color/text_yellow" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/vg_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/vg_top"
+        android:background="@color/bright_blue">
+
+        <TextView
+            android:id="@+id/text_end_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/end_date"
+            android:textColor="@android:color/white" />
+
+        <ListView
+            android:id="@+id/nav_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/activity_vertical_margin_hugest"
+            android:layout_below="@+id/text_end_date"
+            android:layout_alignLeft="@+id/text_end_date"
+            android:layout_gravity="start"
+            android:divider="@color/bright_blue"
+            android:background="@color/bright_blue"
+            android:choiceMode="singleChoice" />
+
+    </RelativeLayout>
+</RelativeLayout>

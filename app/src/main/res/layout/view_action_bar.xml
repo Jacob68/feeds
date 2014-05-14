@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageButton
+        android:id="@+id/button_back"
+        style="@style/BareButton"
+        android:layout_width="@dimen/view_action_bar_height"
+        android:layout_height="@dimen/view_action_bar_height"
+        android:layout_alignParentLeft="true"
+        android:padding="@dimen/view_action_bar_padding"
+        android:contentDescription="@string/action_bar_arrow"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_arrow_left"
+        android:background="@color/bright_blue" />
+
+    <TextView
+        android:id="@+id/text_back_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/button_back"
+        android:layout_centerVertical="true"
+        android:textColor="@android:color/white"
+        android:textAllCaps="true" />
+
+    <TextView
+        android:id="@+id/text_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@android:color/white"
+        android:textAllCaps="true" />
+
+</merge>

@@ -5,4 +5,26 @@
         <!-- Customize your theme here. -->
     </style>
 
+
+    <!-- Dialogs -->
+    <style name="CustomDialogTheme" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+
+
+    <style name="BareButton" parent="@android:style/Widget.Button">
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:background">@drawable/button_bare</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+
+    <style name="BareEditText" parent="@android:style/Widget.EditText">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
 </resources>

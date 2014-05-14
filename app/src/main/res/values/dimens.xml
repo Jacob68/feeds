@@ -1,5 +1,46 @@
 <resources>
+
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin_slim">8dp</dimen>
+    <dimen name="activity_vertical_margin_colossal">48dp</dimen>
+    <dimen name="activity_vertical_margin_ginormous">36dp</dimen>
+    <dimen name="activity_vertical_margin_hugest">32dp</dimen>
+    <dimen name="activity_vertical_margin_huge">24dp</dimen>
+    <dimen name="activity_vertical_margin_large">20dp</dimen>
+    <dimen name="activity_vertical_margin">18dp</dimen>
+    <dimen name="activity_vertical_margin_medium">12dp</dimen>
+    <dimen name="activity_vertical_margin_slim">8dp</dimen>
+    <dimen name="activity_vertical_margin_small">4dp</dimen>
+    <dimen name="activity_vertical_margin_minimal">2dp</dimen>
+
+
+
+    <dimen name="title_image_size">200dp</dimen>
+
+    <!-- Text sizes -->
+    <dimen name="text_size_completely_insane">96sp</dimen>
+    <dimen name="text_size_insane">64sp</dimen>
+    <dimen name="text_size_crazy">48sp</dimen>
+    <dimen name="text_size_ridiculous">32sp</dimen>
+    <dimen name="text_size_hugest">26sp</dimen>
+    <dimen name="text_size_huger">24sp</dimen>
+    <dimen name="text_size_huge">22sp</dimen>
+    <dimen name="text_size_largest">20sp</dimen>
+    <dimen name="text_size_larger">18sp</dimen>
+    <dimen name="text_size_large">16sp</dimen>
+    <dimen name="text_size_regular">14sp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_smaller">10sp</dimen>
+    <dimen name="text_size_smallest">8sp</dimen>
+
+
+    <!-- Dialogs -->
+    <dimen name="dialog_width">240dp</dimen>
+
+    <!-- Action Bar -->
+    <dimen name="view_action_bar_height">44dp</dimen>
+    <dimen name="view_action_bar_thumb_width">48dp</dimen>
+    <dimen name="view_action_bar_padding">8dp</dimen>
+
 </resources>

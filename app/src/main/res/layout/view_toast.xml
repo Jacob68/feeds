@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toast_layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/black"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/image_toast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:contentDescription="@android:string/ok"
+        android:src="@drawable/ic_check_green" />
+
+    <TextView
+        android:id="@+id/text_toast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/activity_vertical_margin_medium"
+        android:text="@string/error"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_size_regular" />
+
+</LinearLayout>
