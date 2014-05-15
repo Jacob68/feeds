@@ -5,6 +5,8 @@ import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
 
+import com.utaharts.app.data.Schedule;
+import com.utaharts.app.data.datasource.UAFDataSource;
 import com.utaharts.app.fragment.ArtFanCamFragment;
 import com.utaharts.app.fragment.ArtistsFragment;
 import com.utaharts.app.fragment.FavoritesFragment;
@@ -15,7 +17,17 @@ import com.utaharts.app.fragment.VoteLocalFragment;
 import com.utaharts.app.fragment.base.BaseFragment;
 import com.utaharts.app.view.ActionBarView;
 
-public class UAFActivity extends BaseActivity implements ActionBarView.IActionBarViewListener {
+import java.util.List;
+
+public class UAFActivity extends BaseActivity implements ActionBarView.IActionBarViewListener, UAFDataSource.IUAFDatasourceCallback {
+
+
+    // inner
+
+    public interface ScheduleCallback {
+        public void onReceiveSchedules(String rawSchedules);
+    }
+
 
     public static final int ACTION_HEADER = -1;
     public static final int ACTION_HOME = 0;
@@ -32,11 +44,16 @@ public class UAFActivity extends BaseActivity implements ActionBarView.IActionBa
     private int currentFrag;
     private int prevFrag;
     private ActionBarView mActionBar;
+    private UAFDataSource dataSource;
+    private List<Schedule> schedules;
+    private String rawSchedules;
+    private ScheduleCallback scheduleCallback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setUpActionBar();
+        this.dataSource = new UAFDataSource();
 
         this.mFragments = new BaseFragment[NUM_FRAGMENTS];
         this.runAction(ACTION_HOME, -1);
@@ -143,6 +160,20 @@ public class UAFActivity extends BaseActivity implements ActionBarView.IActionBa
         }
     }
 
+    public void loadScheduleFeed(ScheduleCallback callback) {
+        // todo load feeds
+        this.scheduleCallback = callback;
+        this.dataSource.getScheduleFeed(this);
+    }
+
+//    public String getSchedules(ScheduleCallback callback) {
+//        if (this.rawSchedules == null) {
+//            this.loadScheduleFeed();
+//        }
+//
+//        return this.rawSchedules;
+//    }
+
 
     @Override
     public void onBackPressed() {
@@ -195,4 +226,14 @@ public class UAFActivity extends BaseActivity implements ActionBarView.IActionBa
 //        dialog.show();
     }
 
+    @Override
+    public void dataReceived(String result, String error) {
+        if (error == null) {
+            // todo save result
+            if (this.scheduleCallback != null) {
+                this.scheduleCallback.onReceiveSchedules(result);
+            }
+            this.rawSchedules = result;
+        }
+    }
 }

@@ -2,8 +2,10 @@ package com.utaharts.app.fragment;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.TextView;
 
 import com.utaharts.app.R;
+import com.utaharts.app.UAFActivity;
 import com.utaharts.app.fragment.base.BaseFragment;
 import com.utaharts.app.view.ActionBarView;
 
@@ -12,7 +14,10 @@ import com.utaharts.app.view.ActionBarView;
  */
 public class ScheduleFragment extends BaseFragment {
 
+
     private View mLayout;
+    private String rawSchedule;
+    private TextView textView;
 
     public ScheduleFragment() {
     }
@@ -25,6 +30,15 @@ public class ScheduleFragment extends BaseFragment {
     @Override
     public void onRootViewCreated(View rootView) {
         this.mLayout = rootView;
+        this.textView = (TextView) this.mLayout.findViewById(R.id.text_view);
+        this.getUAFActivity().loadScheduleFeed(new UAFActivity.ScheduleCallback() {
+            @Override
+            public void onReceiveSchedules(String rawSchedules) {
+                ScheduleFragment self = ScheduleFragment.this;
+                self.rawSchedule = rawSchedules;
+                self.textView.setText(rawSchedules);
+            }
+        });
     }
 
     @Override
