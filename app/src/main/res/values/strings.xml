@@ -44,5 +44,16 @@
         <item>Favorites</item>
         <item>Info</item>
     </array>
+    <array name="test_nav_items">
+        <item>Event Objects</item>
+        <item>JSON Objects</item>
+        <item>Single JSON</item>
+    </array>
+
+
+    <!-- Strings for test code of Json objects -->
+    <string name="xml_parsed_as_event_objects">XML Parsed as Event Objects</string>
+    <string name="xml_parsed_as_json_objects">XML Parsed as JSON Objects</string>
+    <string name="xml_parsed_as_single_json_object">XML Parsed as Single JSON Object</string>
 
 </resources>

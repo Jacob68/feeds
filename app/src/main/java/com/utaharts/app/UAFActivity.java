@@ -4,7 +4,9 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
+import android.widget.Toast;
 
+import com.utaharts.app.data.Event;
 import com.utaharts.app.data.Schedule;
 import com.utaharts.app.data.datasource.UAFDataSource;
 import com.utaharts.app.fragment.ArtFanCamFragment;
@@ -17,6 +19,9 @@ import com.utaharts.app.fragment.VoteLocalFragment;
 import com.utaharts.app.fragment.base.BaseFragment;
 import com.utaharts.app.view.ActionBarView;
 
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class UAFActivity extends BaseActivity implements ActionBarView.IActionBarViewListener, UAFDataSource.IUAFDatasourceCallback {
@@ -47,6 +52,7 @@ public class UAFActivity extends BaseActivity implements ActionBarView.IActionBa
     private UAFDataSource dataSource;
     private List<Schedule> schedules;
     private String rawSchedules;
+    private List<Event> events = new ArrayList<Event>();
     private ScheduleCallback scheduleCallback;
 
     @Override
@@ -57,6 +63,11 @@ public class UAFActivity extends BaseActivity implements ActionBarView.IActionBa
 
         this.mFragments = new BaseFragment[NUM_FRAGMENTS];
         this.runAction(ACTION_HOME, -1);
+
+        this.events = this.dataSource.getEventList();
+        if (this.events.isEmpty()) {
+            this.getEventsFromDataSource();
+        }
     }
 
     @Override
@@ -160,20 +171,50 @@ public class UAFActivity extends BaseActivity implements ActionBarView.IActionBa
         }
     }
 
-    public void loadScheduleFeed(ScheduleCallback callback) {
-        // todo load feeds
-        this.scheduleCallback = callback;
-        this.dataSource.getScheduleFeed(this);
+    /**
+     * @return all Events.
+     */
+    public List<Event> getEvents() {
+        return this.dataSource.getEventList();
     }
 
-//    public String getSchedules(ScheduleCallback callback) {
-//        if (this.rawSchedules == null) {
-//            this.loadScheduleFeed();
-//        }
-//
-//        return this.rawSchedules;
-//    }
+    /**
+     * @return List of events as JSON objects
+     */
+    public List<JSONObject> getJsonList() {
+        return this.dataSource.getJsonEventList();
+    }
 
+    /**
+     * @return All events as single JSON object
+     */
+    public JSONObject getEventsAsJson() {
+        return this.dataSource.getJson();
+    }
+
+    /**
+     * Get events from DataSource.
+     */
+    private void getEventsFromDataSource() {
+        // start progress dialog
+        this.showProgressDialog();
+        this.dataSource.getAllData(new UAFDataSource.IUAFDatasourceCallback() {
+            @Override
+            public void dataReceived(String result, String error) {
+                UAFActivity self = UAFActivity.this;
+                if (error == null && result.equals("true")) {
+                    // Events have been retrieved, parsed and saved
+                    self.events = self.dataSource.getEventList();
+                } else {
+                    // An Error occurred
+                    Toast.makeText(self, "There was an error getting xml data", Toast.LENGTH_LONG).show();
+                }
+
+                // end progress dialog
+                self.hideProgressDialog();
+            }
+        });
+    }
 
     @Override
     public void onBackPressed() {

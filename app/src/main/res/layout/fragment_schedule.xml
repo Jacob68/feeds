@@ -6,9 +6,25 @@
 
     <TextView
         android:id="@+id/text_view"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="@string/frag_schedule"/>
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:text="@string/xml_parsed_as_event_objects"
+        android:textSize="@dimen/text_size_huger"
+        android:textColor="@color/bright_blue"
+        android:background="@color/bright_pink"/>
+
+    <ListView
+        android:id="@+id/item_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/text_view"
+        android:layout_gravity="start"
+        android:divider="@android:color/black"
+        android:dividerHeight="2dp"
+        android:background="@color/bright_blue"
+        android:choiceMode="singleChoice" />
 
 </RelativeLayout>

@@ -60,7 +60,8 @@ public class HomeFragment extends BaseFragment {
         this.navList = (ListView) this.mLayout.findViewById(R.id.nav_list);
 
         final Resources res = this.getResources();
-        String[] navItems = res.getStringArray(R.array.nav_items);
+        // TODO using test_nav_items for json testing
+        String[] navItems = res.getStringArray(R.array.test_nav_items);
 
         final ArrayList<String> list = new ArrayList<String>();
         for (int i = 0; i < navItems.length; ++i) {
@@ -80,6 +81,9 @@ public class HomeFragment extends BaseFragment {
                         break;
                     case 1:
                         activity.runAction(UAFActivity.ACTION_ARTISTS, -1);
+                        break;
+                    case 2:
+                        activity.runAction(UAFActivity.ACTION_ART_FAN_CAM, -1);
                         break;
                 }
             }

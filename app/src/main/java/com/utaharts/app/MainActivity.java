@@ -23,17 +23,17 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         this.textView = (TextView) this.findViewById(R.id.text_view);
 
-        UAFDataSource dataSource = new UAFDataSource();
-        dataSource.getScheduleFeed(new UAFDataSource.IUAFDatasourceCallback() {
-            @Override
-            public void dataReceived(String result, String error) {
-                if (error == null) {
-                    MainActivity.this.textView.setText(result);
-                } else {
-                    MainActivity.this.textView.setText(error);
-                }
-            }
-        });
+//        UAFDataSource dataSource = new UAFDataSource();
+//        dataSource.getScheduleFeed(new UAFDataSource.IUAFDatasourceCallback() {
+//            @Override
+//            public void dataReceived(String result, String error) {
+//                if (error == null) {
+//                    MainActivity.this.textView.setText(result);
+//                } else {
+//                    MainActivity.this.textView.setText(error);
+//                }
+//            }
+//        });
 
 
 

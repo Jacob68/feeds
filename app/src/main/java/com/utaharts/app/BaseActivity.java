@@ -50,7 +50,7 @@ public abstract class BaseActivity extends Activity implements ISetFonts, IInfla
     }
 
     /**
-     * @return Return this activity's JaybirdApi instance
+     * @return Return this activity's Api instance
      */
     public UAFDataSource getUafDataSource() {
         if (this.uafDataSource == null) {

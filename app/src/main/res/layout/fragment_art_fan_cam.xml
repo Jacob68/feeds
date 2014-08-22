@@ -6,9 +6,32 @@
 
     <TextView
         android:id="@+id/text_view"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="@string/frag_art_fan_cam"/>
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:text="@string/xml_parsed_as_single_json_object"
+        android:textSize="@dimen/text_size_huger"
+        android:textColor="@color/bright_blue"
+        android:background="@color/bright_pink" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/text_view"
+        android:scrollbars="vertical"
+        android:fillViewport="true"
+        android:background="@color/bright_blue">
+
+        <TextView
+            android:id="@+id/json_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/frag_art_fan_cam"
+            android:textSize="@dimen/text_size_large"
+            android:textColor="@android:color/white"
+            android:background="@color/bright_blue" />
+
+    </ScrollView>
 </RelativeLayout>
